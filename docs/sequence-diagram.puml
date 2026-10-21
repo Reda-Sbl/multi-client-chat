@@ -1,0 +1,20 @@
+@startuml
+title Message flow
+actor Alice
+participant "ClientApp/ChatClient" as CA
+participant "ClientHandler (virtual thread)" as H
+participant ChatServer as S
+participant "Other clients" as O
+Alice -> CA : types "hello", ENTER
+CA -> H : MSG hello
+H -> S : broadcastChat(Alice, hello)
+S -> O : CHAT [12:00:01] Alice: hello
+S -> CA : CHAT [12:00:01] Alice: hello
+Alice -> CA : "allUsers"
+CA -> H : ALLUSERS
+H -> CA : USERS Alice, Bob
+Alice -> CA : "bye"
+CA -> H : LEAVE
+H -> S : unregister
+S -> O : INFO Alice left the chat
+@enduml

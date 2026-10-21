@@ -1,0 +1,30 @@
+@startuml
+title Class Diagram
+package "TCPServer" {
+  class TCPServer { +main(String[]) }
+  class ServerApp <<View>> { -logArea; -users; -colors +start(Stage); +onLog(); +onUsersChanged() }
+  interface ServerListener { +onLog(String); +onUsersChanged(List) }
+  class ChatServer <<Model>> { -port; -clients +start(); +stop(); ~broadcast(); ~activeUsers() }
+  class ClientHandler <<Runnable>> { -socket; -username; -readOnly +run(); ~send(String) }
+  class AppConfig <<record>> { host; port; +load() }
+  TCPServer ..> ServerApp : launches
+  ServerApp ..|> ServerListener
+  ServerApp --> ChatServer
+  ChatServer --> ServerListener : notifies
+  ChatServer "1" o-- "*" ClientHandler
+  ClientHandler --> ChatServer
+  ServerApp ..> AppConfig
+}
+package "TCPClient" {
+  class TCPClient { +main(String[]) }
+  class ClientApp <<View>> { +start(Stage); +onMessage(); +onDisconnected() }
+  interface ChatListener { +onMessage(String); +onDisconnected(String) }
+  class ChatClient <<Model>> { -host; -port; -readOnly +connect(String); +send(String); +disconnect() }
+  class "AppConfig " as AC2 <<record>> { host; port; +load() }
+  TCPClient ..> ClientApp : launches
+  ClientApp ..|> ChatListener
+  ClientApp --> ChatClient
+  ChatClient --> ChatListener : notifies
+  ClientApp ..> AC2
+}
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+title Deployment Diagram
+node "Server Machine (JVM 21)" as S {
+  artifact "TCPServer.jar" as SJ
+  artifact "config.properties" as SC
+}
+node "Client Machine 1 (JVM 21)" as C1 { artifact "TCPClient.jar" as CJ1 }
+node "Client Machine 2 (JVM 21)" as C2 { artifact "TCPClient.jar" as CJ2 }
+node "Client Machine N (JVM 21)" as C3 { artifact "TCPClient.jar" as CJ3 }
+C1 -- S : TCP/IP (port 3000)
+C2 -- S : TCP/IP (port 3000)
+C3 -- S : TCP/IP (port 3000)
+@enduml
