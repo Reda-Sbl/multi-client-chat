@@ -1,0 +1,38 @@
+.root { -fx-font-family: "Segoe UI", "Helvetica Neue", Arial; -fx-font-size: 13px; }
+
+/* ---- login ---- */
+.login-root { -fx-background-color: linear-gradient(to bottom right, #4f46e5, #7c3aed); }
+.card { -fx-background-color: white; -fx-background-radius: 16; -fx-padding: 28;
+        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 24, 0, 0, 6); }
+.login-title { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1f2937; }
+.muted { -fx-text-fill: #6b7280; -fx-font-size: 12px; }
+.error { -fx-text-fill: #dc2626; -fx-font-size: 12px; }
+.text-field { -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #d1d5db; -fx-padding: 9; }
+.text-field:focused { -fx-border-color: #4f46e5; }
+
+/* ---- buttons ---- */
+.button { -fx-background-radius: 8; -fx-cursor: hand; -fx-font-weight: bold; -fx-padding: 9 18; }
+.primary { -fx-background-color: #4f46e5; -fx-text-fill: white; }
+.primary:hover { -fx-background-color: #4338ca; }
+.primary:disabled { -fx-background-color: #c7c7d1; }
+.danger { -fx-background-color: #fee2e2; -fx-text-fill: #b91c1c; -fx-padding: 5 12; }
+.danger:hover { -fx-background-color: #fecaca; }
+
+/* ---- chat ---- */
+.chat-root { -fx-background-color: #f3f4f6; }
+.header { -fx-background-color: white; -fx-padding: 10 14; -fx-border-color: #e5e7eb; -fx-border-width: 0 0 1 0; }
+.status { -fx-font-weight: bold; -fx-text-fill: #374151; }
+.who { -fx-text-fill: #4f46e5; -fx-font-weight: bold; }
+.badge-readonly { -fx-background-color: #fef3c7; -fx-text-fill: #b45309; -fx-font-weight: bold;
+                  -fx-padding: 3 10; -fx-background-radius: 20; }
+.chat-scroll { -fx-background-color: transparent; -fx-background: #f3f4f6; -fx-border-width: 0; }
+.chat-scroll > .viewport { -fx-background-color: #f3f4f6; }
+.bubble { -fx-padding: 8 12; -fx-background-radius: 14; }
+.bubble-mine { -fx-background-color: #4f46e5; -fx-text-fill: white; }
+.bubble-other { -fx-background-color: white; -fx-text-fill: #111827; }
+.sender { -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #6b7280; }
+.time { -fx-font-size: 10px; -fx-text-fill: #9ca3af; }
+.system-msg { -fx-background-color: #e5e7eb; -fx-text-fill: #4b5563; -fx-font-size: 11px;
+              -fx-padding: 3 12; -fx-background-radius: 20; }
+.text-area { -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #d1d5db; }
+.text-area .content { -fx-background-radius: 10; }
